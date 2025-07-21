@@ -1,0 +1,12 @@
+// Two-sum existence: one pass with a hash set of complements.
+// Time: O(n), Space: O(n).
+function twoSum(nums, k) {
+  const seen = new Set();
+  for (const x of nums) {
+    if (seen.has(k - x)) return true;
+    seen.add(x);
+  }
+  return false;
+}
+
+console.log(twoSum([10, 15, 3, 7], 17));
