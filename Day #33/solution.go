@@ -1,0 +1,56 @@
+// Running median with two heaps (max-heap lower half, min-heap upper half). O(log n) per insert.
+package main
+
+import (
+	"container/heap"
+	"fmt"
+	"math"
+	"strconv"
+)
+
+type MaxHeap []int
+
+func (h MaxHeap) Len() int            { return len(h) }
+func (h MaxHeap) Less(i, j int) bool  { return h[i] > h[j] }
+func (h MaxHeap) Swap(i, j int)       { h[i], h[j] = h[j], h[i] }
+func (h *MaxHeap) Push(x interface{}) { *h = append(*h, x.(int)) }
+func (h *MaxHeap) Pop() interface{}   { o := *h; n := len(o); x := o[n-1]; *h = o[:n-1]; return x }
+
+type MinHeap []int
+
+func (h MinHeap) Len() int            { return len(h) }
+func (h MinHeap) Less(i, j int) bool  { return h[i] < h[j] }
+func (h MinHeap) Swap(i, j int)       { h[i], h[j] = h[j], h[i] }
+func (h *MinHeap) Push(x interface{}) { *h = append(*h, x.(int)) }
+func (h *MinHeap) Pop() interface{}   { o := *h; n := len(o); x := o[n-1]; *h = o[:n-1]; return x }
+
+func main() {
+	stream := []int{2, 1, 5, 7, 2, 0, 5}
+	lo := &MaxHeap{}
+	hi := &MinHeap{}
+	heap.Init(lo)
+	heap.Init(hi)
+	for _, x := range stream {
+		if lo.Len() == 0 || x <= (*lo)[0] {
+			heap.Push(lo, x)
+		} else {
+			heap.Push(hi, x)
+		}
+		if lo.Len() > hi.Len()+1 {
+			heap.Push(hi, heap.Pop(lo))
+		} else if hi.Len() > lo.Len() {
+			heap.Push(lo, heap.Pop(hi))
+		}
+		var m float64
+		if lo.Len() == hi.Len() {
+			m = (float64((*lo)[0]) + float64((*hi)[0])) / 2
+		} else {
+			m = float64((*lo)[0])
+		}
+		if m == math.Floor(m) {
+			fmt.Println(strconv.FormatInt(int64(m), 10))
+		} else {
+			fmt.Println(strconv.FormatFloat(m, 'g', -1, 64))
+		}
+	}
+}
