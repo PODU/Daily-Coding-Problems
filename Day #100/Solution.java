@@ -1,0 +1,16 @@
+// Day 100: 8-directional steps between two points = Chebyshev distance
+// max(|dx|,|dy|). Sum over consecutive points. O(n) time.
+public class Solution {
+    static int minSteps(int[][] pts) {
+        int total = 0;
+        for (int i = 1; i < pts.length; i++)
+            total += Math.max(Math.abs(pts[i][0] - pts[i - 1][0]),
+                              Math.abs(pts[i][1] - pts[i - 1][1]));
+        return total;
+    }
+
+    public static void main(String[] args) {
+        int[][] pts = {{0, 0}, {1, 1}, {1, 2}};
+        System.out.println(minSteps(pts)); // 2
+    }
+}
