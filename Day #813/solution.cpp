@@ -1,0 +1,23 @@
+// Non-decreasing with at most 1 modification: single pass counting violations,
+// greedily lower nums[i-1] or raise nums[i]. Time O(n), Space O(1).
+#include <bits/stdc++.h>
+using namespace std;
+
+bool canBeNonDecreasing(vector<int> nums) {
+    int count = 0;
+    for (size_t i = 1; i < nums.size(); ++i) {
+        if (nums[i - 1] > nums[i]) {
+            if (++count > 1) return false;
+            if (i < 2 || nums[i - 2] <= nums[i]) nums[i - 1] = nums[i];
+            else nums[i] = nums[i - 1];
+        }
+    }
+    return true;
+}
+
+int main() {
+    cout << boolalpha;
+    cout << canBeNonDecreasing({10, 5, 7}) << "\n";
+    cout << canBeNonDecreasing({10, 5, 1}) << "\n";
+    return 0;
+}
