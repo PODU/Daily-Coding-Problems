@@ -1,0 +1,19 @@
+# Day 1001
+
+## Difficulty
+
+Medium
+
+## Problem Statement
+
+Determine whether a tree is a valid binary search tree.
+
+A binary search tree is a tree with two children, `left` and `right`, and satisfies the constraint that the key in the `left` child must be less than or equal to the root and the key in the `right` child must be greater than or equal to the root.
+
+## Explanation
+
+Determine whether a given binary tree satisfies the binary search tree property.
+
+## Company
+
+LinkedIn
