@@ -1,0 +1,19 @@
+# Day 1063
+
+## Difficulty
+
+Easy
+
+## Problem Statement
+
+Given a array that's sorted but rotated at some unknown pivot, in which all elements are distinct, find a "peak" element in `O(log N)` time.
+
+An element is considered a peak if it is greater than both its left and right neighbors. It is guaranteed that the first and last elements are lower than all others.
+
+## Explanation
+
+Find a peak element (greater than both neighbors) in a rotated sorted array of distinct values in logarithmic time.
+
+## Company
+
+Sumo Logic
