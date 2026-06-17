@@ -1,0 +1,19 @@
+# Day 1679
+
+## Difficulty
+
+Hard
+
+## Problem Statement
+
+Given a tree, find the largest tree/subtree that is a BST.
+
+Given a tree, return the size of the largest tree/subtree that is a BST.
+
+## Explanation
+
+Find the size of the largest subtree within a binary tree that is itself a valid binary search tree.
+
+## Company
+
+Apple
