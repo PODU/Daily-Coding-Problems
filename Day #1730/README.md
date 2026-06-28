@@ -1,0 +1,30 @@
+# Day 1730
+
+## Difficulty
+
+Medium
+
+## Problem Statement
+
+Implement integer exponentiation. That is, implement the pow(x, y) function, where x and y are integers and returns x^y.
+
+Do this faster than the naive method of repeated multiplication.
+
+## Example
+
+### Input
+```
+pow(2, 10)
+```
+### Output
+```
+1024
+```
+
+## Explanation
+
+Implement integer exponentiation pow(x, y) faster than naive repeated multiplication.
+
+## Company
+
+Google
