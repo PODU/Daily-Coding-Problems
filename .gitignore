@@ -1,0 +1,17 @@
+# Compiled build artifacts
+*.class
+*.exe
+*.o
+*.obj
+*.pyc
+__pycache__/
+
+# Go / Rust local build output
+*.test
+target/
+
+# Editor / OS noise
+.vscode/
+.idea/
+Thumbs.db
+.DS_Store
